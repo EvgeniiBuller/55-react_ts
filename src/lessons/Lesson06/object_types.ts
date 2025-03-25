@@ -38,7 +38,7 @@ const newUser: User = {
 }
 
 //---типизация через type
-//использование 
+//использование  type для создания усложненного типа
 type Weight = string | number | null;
 
 let userWeight: Weight = 52;
@@ -48,7 +48,7 @@ let animalWeight: Weight = null;
 type Status = 'success' | 'error' | 'loading';
 let requestStatus: Status = 'success';
 requestStatus = 'loading';
-//requestStatus = 'eror';- пример неправильного значения
+//requestStatus = 'eror';- пример неправильного указания значения
 
 //использование type для типизации объекта
 type Animal = {
@@ -61,10 +61,10 @@ const animalData: Animal = {
     weight: 200
 }
 
-//
+// // !нельзя создавать типы с одинаковыми названиями
 //type Animal = {country: 'London'};
 
-// 
+// объединение типов
 type NewAnimal = Animal & {country: string};
 
 const zebra: NewAnimal = {
@@ -77,7 +77,9 @@ const dog: Animal = {
    // country: 'Germany'
 } 
 
-//Generic & Type - дженерик это переменная в которую мы можем подставить нужный тип в момент исползвания данного type(interface)
+//Generic & Type - дженерик это переменная, 
+// в которую мы можем подставить нужный тип 
+// в момент исползвания данного type(interface)
 type CustomArrayType<T=null> = (string | T)[];
 
 const arrayMix1: CustomArrayType<number> =  ['red', 123, 'black'];
@@ -95,7 +97,7 @@ const arrayMix3: CustomArrayType = ['zebra', null];
     address: 'London, str...'
   }
 
-//
+//---Числовое перечисление
   enum Colors {Red, Black=6, Green};
 
   //---Строковое перечисление
@@ -106,7 +108,7 @@ const arrayMix3: CustomArrayType = ['zebra', null];
     GREEN = 'green'
   }
 
-  // Пример экспортаименованого 
+  // Пример экспорта именованного экспорта
   export const getAction = (light: TRAFFIC_LIGHT) => {
     switch (light) {
       case TRAFFIC_LIGHT.RED:
