@@ -1,32 +1,32 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
+import "./style.css";
+import { InputProps } from './types';
 
-
-interface Inp {
-    placeholder?: string;
-    name?: string;
-  }
-  
- const Input: React.FC<Inp> = ({ placeholder, name }) => {
-    return (
+function Input({ 
+  placeholder,
+  name, 
+  value, 
+  type='text', 
+  onChange, 
+  label, 
+  id 
+}:InputProps) {
+  return (
+    <div className="input-container">
+      <label htmlFor={id}>{label}</label>
       <input
-        type="text"
-        placeholder={placeholder}
+        className="input-component"
         name={name}
-        style={{
-          padding: '10px',
-          border: '5px solid rgb(236, 240, 219)',
-          borderRadius: '4px',
-          margin: '5px',
-          width: '500px',
-          cursor: '5px pointer',
-          background:'rgb(207, 228, 240)',
-          color:' rgb(232, 15, 15)'
-        }}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        type={type}
+        id={id}
       />
-    );
-  };
-  
-  export default Input;
+    </div>
+  );
+}
 
 
+
+export default Input;
