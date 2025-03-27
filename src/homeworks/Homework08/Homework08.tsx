@@ -18,9 +18,9 @@ const handleButtonClick = () => {
     return(
         <div className="homework08-container">
         <h1>Change password</h1>
-        {/* <label>
+        <label>
             Password:
-             </label> */}
+             </label>
         <Input 
         name='personal-password' 
         onChange={onChangePassword} 
