@@ -8,7 +8,7 @@ import { ProductProps } from "./types";
         return (
             <div>
               <h3>{name}</h3>
-              <p>Price: ${price.toFixed(2)}</p>
+              <p>Price: {price.toFixed(2)}</p>
             </div>
           );   
   }
