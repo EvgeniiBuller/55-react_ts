@@ -21,7 +21,7 @@ function Lesson09() {
       <BoxInfo primary={false}>Emotion example 2</BoxInfo> */}
       <BoxInfo primary>
 <TitleCard>Marts</TitleCard>
-<AvatarImg src={Avatar}></AvatarImg>
+<AvatarImg src={Avatar}></AvatarImg >
       </BoxInfo>
       <BoxInfo>Emotion example 2</BoxInfo>
     </div>
