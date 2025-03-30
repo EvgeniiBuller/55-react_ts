@@ -7,7 +7,7 @@ primary?: boolean
 export const BoxInfo = styled.div<BoxInfoStyledProps>`
  display: flex;
  align-items: center;
- justify-content: ${({primary})=> primary ?'center': 'flex-end'};;
+ justify-content: ${({primary})=> primary ?'center': 'flex-end'};
  padding: 20px;
  width: 300px;
  height: 300px;
