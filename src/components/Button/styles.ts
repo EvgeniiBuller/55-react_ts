@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 interface ButtonComponentStyleProps {
-  isButton?: boolean
+  isDanger?: boolean
 }
 
 export const MainButton = styled.button<ButtonComponentStyleProps>`
@@ -15,6 +15,6 @@ export const MainButton = styled.button<ButtonComponentStyleProps>`
     color: white;
     cursor: pointer;
     gap: 26px;
-    background-color: ${({isButton}) => isButton ? 'red' : 'rgb(98, 106, 129)'};
+    background-color: ${({isDanger}) => isDanger ? 'red' : 'rgb(98, 106, 129)'};
 `;
 

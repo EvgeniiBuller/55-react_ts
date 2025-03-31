@@ -21,7 +21,7 @@ function Button({
     onClick={onClick} 
     disabled={disablet} 
     type={type}
-    isButton = {danger}
+    isDanger = {danger}
     >
       {name}
     </MainButton>
