@@ -10,6 +10,7 @@ export const Homework09Container = styled.div`
   gap: 40px;
   flex: 1;
   padding: 60px;
+ 
   background-color: rgb(188, 219, 219);
 `;
 export const ProfileCard = styled.div<ProfileCardStyledProps>`
