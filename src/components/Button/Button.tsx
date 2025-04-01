@@ -5,23 +5,26 @@ import { ButtonProps } from "./types";
 //     name: string,
 //     // void - если функция ничего не возвращает
 //     onClick?: () => void,
-//     disablet?: boolean,
+//     disabled?: boolean,
 //     type?: 'submit' | 'button' | 'reset'
 // }
 
 function Button({
+
+  
+  
   name,
   onClick,
-  disablet = false,
+  disabled = false,
   type = "submit",
   danger 
 }: ButtonProps) {
   return (
     <MainButton 
     onClick={onClick} 
-    disabled={disablet} 
+    disabled={disabled} 
     type={type}
-    isDanger = {danger}
+    danger = {danger}
     >
       {name}
     </MainButton>

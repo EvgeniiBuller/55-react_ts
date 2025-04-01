@@ -1,20 +1,22 @@
 import styled from "@emotion/styled";
-
-interface ButtonComponentStyleProps {
-  isDanger?: boolean
+interface MainButtonStyledProps {
+  danger?: boolean
 }
+export const MainButton = styled.button<MainButtonStyledProps>`
+  width: 300px;
+  height: fit-content;
+  padding: 20px;
+  background: ${({danger})=> danger ? 'rgb(176, 44, 11)' : 'rgb(17, 48, 127)'};
+  border: none;
+  border-radius: 6px;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
 
-export const MainButton = styled.button<ButtonComponentStyleProps>`
+  &:disabled {
+    background-color: rgb(202, 200, 200);
+  }
+  `;
 
- width: 150px;
-  height: 50px;
-    background: rgb(17, 48, 127);
-    border: 1px solid black;
-    border-radius: 6px;
-    font-size: 26px;
-    color: white;
-    cursor: pointer;
-    gap: 26px;
-    background-color: ${({isDanger}) => isDanger ? 'red' : 'rgb(98, 106, 129)'};
-`;
+  
 
