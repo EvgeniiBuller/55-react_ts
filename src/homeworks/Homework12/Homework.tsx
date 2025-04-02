@@ -21,7 +21,7 @@ const getCats = async () => {
         const response = await axios.get(FACTS_ABOUT_CATS); 
         console.log(response.data);      
         const data = response.data;
-        setCats(`${data.fact}; - ${data.punchline}`);
+        setCats(data.fact);
 }
  catch (error: any) {
     setError(error.message);
