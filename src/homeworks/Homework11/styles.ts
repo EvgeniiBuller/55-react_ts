@@ -1,21 +1,17 @@
 
 import styled from "@emotion/styled";
-
 export const Homework11Container = styled.div`
- display: flex;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
   flex: 1;
   padding: 60px;
-  background-color: rgb(246, 201, 18);
-  color: rgb(246, 201, 18);;
+  background-color: rgb(217, 188, 219);
 `;
-
-
-export const StyledParagraph = styled.p`
-  font-size: 18px;
+export const Result = styled.div`
+  font-size: 30px;
   font-weight: bold;
-  color: rgb(72, 19, 247);;
+  color: rgb(62, 14, 66);
 `;
-
