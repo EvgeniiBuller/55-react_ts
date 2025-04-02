@@ -1,15 +1,16 @@
 import styled from "@emotion/styled";
 
-export const Lesson12Container = styled.div`
+export const Homework12Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
   flex: 1;
   padding: 60px;
-  background-color: rgb(241, 231, 83);
+  background-color: rgb(246, 132, 238);
 `;
-export const JokeWrapper = styled.div`
+
+export const CatsWrapper = styled.div`
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -17,13 +18,12 @@ export const JokeWrapper = styled.div`
  min-width: 500px;
  min-height: 400px;
  padding: 30px;
- background-color: white;
+ background-color: rgb(240, 242, 223);;
  border-radius: 10px;
  font-size: 24px;
- color:rgb(66, 113, 20);
+ color:rgb(5, 169, 24);
  font-weight: bold;
 `
-
 export const Error = styled.div`
  font-size: 28px;
  color: red;
