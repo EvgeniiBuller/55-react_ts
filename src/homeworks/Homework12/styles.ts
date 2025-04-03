@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 
+import backImage from '../../assets/Image20250403101207.jpg';
+
 export const Homework12Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -8,24 +10,27 @@ export const Homework12Container = styled.div`
   flex: 1;
   padding: 60px;
   background-color: rgb(246, 132, 238);
+  background-image: url(${backImage});
+  background-position: center;
+  background-size: cover; 
 `;
 
 export const CatsWrapper = styled.div`
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- min-width: 500px;
- min-height: 400px;
- padding: 30px;
- background-color: rgb(240, 242, 223);;
- border-radius: 10px;
- font-size: 24px;
- color:rgb(5, 169, 24);
- font-weight: bold;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 500px;
+  min-height: 400px;
+  padding: 30px;
+  background-color: rgb(240, 242, 223);
+  border-radius: 10px;
+  font-size: 24px;
+  color: rgb(5, 169, 24);
+  font-weight: bold;
+`;
 export const Error = styled.div`
- font-size: 28px;
- color: red;
- font-weight: bold;
- `;
+  font-size: 28px;
+  color: red;
+  font-weight: bold;
+`;
