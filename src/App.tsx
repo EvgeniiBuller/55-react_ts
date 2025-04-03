@@ -20,13 +20,13 @@ import GlobalStyles from "./styles/GlobalStyles"
 // import Homework09 from "./homeworks/Homework09/homework09"
 //import Homework10 from "./homeworks/Homework10/Homework10"
 //import Homework11 from "./homeworks/Homework11/Homework11"
-import Homework12 from "./homeworks/Homework12/Homework12"
+//import Homework12 from "./homeworks/Homework12/Homework12"
 
 
 //consultation import
 //import Consultation04 from "./consultations/Consultation04/Consultation04"
 //import Consultation05 from "./consultations/Consultation05/Consultation05"
-
+import Consultation06 from "./consultations/Consultation06/consultation06"
 
 function App() {
   
@@ -48,7 +48,8 @@ function App() {
        {/* <Consultation05/> */}
        {/* <Homework11/> */}
        {/* <Lesson12/> */}
-       <Homework12/>
+       {/* <Homework12/> */}
+       <Consultation06/>
     </>
   )
 }
