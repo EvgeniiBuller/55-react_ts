@@ -1,4 +1,4 @@
-//
+//Импортируем хук useFormik из библиотеки formik
 import { useFormik } from "formik";
 import * as Yup from 'yup'
 
