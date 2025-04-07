@@ -3,40 +3,38 @@ import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import './styles.css'
 
-function Homework08 () {
+function Homework08() {
+  const [passwordValue, setPasswordValue] = useState<string>('');
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
-const [password, setPassword] = useState<string>('');
-const [showPassword, setShowPassword] = useState<boolean>(false);
+  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
+    setPasswordValue(event.target.value)
+  }
 
-const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => (
-       setPassword(event.target.value));
+  const showPassword = () => {
+    setIsShowPassword(true)
+  }
+  
+  const hidePassword = () => {
+    setIsShowPassword(false)
+  }
 
-const handleButtonClick = () => {
-    setShowPassword(!showPassword);
-  };       
-
-    return(
-        <div className="homework08-container">
-        <h1>Change password</h1>
-        <label>
-            Password:
-             </label>
-        <Input 
-        name='personal-password' 
-        onChange={onChangePassword} 
-        value={password}
+  return (
+    <div className="homework08-container">
+      <h1>Change password</h1>
+      <Input
+        name='password'
+        label='Password'
+        id='password_id'
         placeholder="Enter your password"
-        type="password"
-        label="Password:"
-        />
-       
-        <Button name="SHOW PASSWORD" onClick={handleButtonClick}/>
-        {showPassword &&
-        <div>
-            {password}
-        </div>}
-        </div>
-      
-    );
+        type='password'
+        value={passwordValue}
+        onChange={onChangePassword}
+      />
+      <Button name='SHOW PASSWORD' onClick={showPassword} />
+      <Button name='HIDE PASSWORD' onClick={hidePassword} />
+      {isShowPassword && <div className="result-container">{passwordValue}</div>}
+    </div>
+  )
 }
-export default Homework08;
+export default Homework08
