@@ -1,73 +1,67 @@
-import * as Yup from "yup";
 import { useFormik } from "formik";
+import * as Yup from 'yup'
 
+import { ValidationFormValues } from "./types";
+import { Homework15Container, ValidationForm } from "./styles";
 import Input from "../../components/Input/Input";
-import { Checkbox, CheckboxContainer, Homework15Container } from "./styles";
-import { Homework15Values } from "./types";
 import Button from "../../components/Button/Button";
+import Checkbox from "../../components/Checkbox/Checkbox";
+
+
 
 function Homework15() {
-  const schema = Yup.object().shape({
-    validationCode: Yup.number()
-      .typeError("Must be a number")
-      .required("Validation code is required")
-      .test(
-        "len",
-        "Validation code must be exactly 6 digits",
-        (value) => value !== undefined && String(value).length === 6
-      ),
-    privacyPolicy: Yup.boolean()
-      .oneOf([true], "You must accept the Privacy Policy")
-      .required("Privacy Policy is required"),
-  });
 
-  const formik = useFormik({
-    initialValues: {
-      validationCode: "",
-      privacyPolicy: false,
-    } as Homework15Values,
-    validationSchema: schema,
-    validateOnChange: false,
-    onSubmit: (values) => {
-      console.log("Вы успешно вошли");
-      console.table(values);
-    },
-  });
+    const validationSchema = Yup.object().shape({
+        // code: Yup.string()
+        //  .required('Поле обязательное')
+        //  .matches(/^d{6}$/, 'Код должен содержать 6 символов'),
+        code: Yup.number()
+          .required('Поле обязательное')
+          .test(
+            '6symb',
+            'Код должен содержать 6 символов',
+            (value) => String(value).length === 6
+          ),
+        privacy: Yup.boolean().oneOf([true], 'Дайте согласие')
+      })
 
-  return (
-    <Homework15Container>
-      <Input
-        name="validationCode"
-        label="Validation Code"
-        id="validationCode_id"
-        placeholder="Enter your employee code"
-        value={formik.values.validationCode}
-        onChange={formik.handleChange}
-        error={formik.errors.validationCode}
-      />
-      <CheckboxContainer>
-        <Checkbox>
-          <Input
-            name="privacyPolicy"
-            type="checkbox"
-            checked={formik.values.privacyPolicy}
-            onChange={formik.handleChange}
-          />
-          Privacy and policy
-        </Checkbox>
-        {formik.errors.privacyPolicy && (
-          <div style={{ color: "red" }}>{formik.errors.privacyPolicy}</div>
-        )}
-      </CheckboxContainer>
-      <Button
-        type="submit"
-        onClick={formik.handleSubmit}
-        disabled={formik.isSubmitting}
-        name={""}
-      />
-      Login
-    </Homework15Container>
-  );
-}
+      const formik = useFormik({
+        initialValues: {
+          code: '',
+          privacy: false
+        } as ValidationFormValues,
+        validationSchema,
+        validateOnChange: false,
+        onSubmit: (values: ValidationFormValues, formikHelpers) => {
+            console.log('Вы успешно вошли');
+            formikHelpers.resetForm()
+          }
+      })
 
-export default Homework15;
+      return (
+        <Homework15Container>
+          <ValidationForm onSubmit={formik.handleSubmit}>
+            <Input
+              name='code'
+              label='Validation Code'
+              id='code_id'
+              type='number'
+              placeholder="Enter your code"
+              value={formik.values.code}
+              onChange={formik.handleChange}
+              error={formik.errors.code}
+            />
+            <Checkbox
+              name='privacy'
+              checked={formik.values.privacy}
+              onChange={formik.handleChange}
+              id='privacy_id'
+              label='Privacy and Policy'
+              error={formik.errors.privacy}
+            />
+            <Button name='Login' />
+          </ValidationForm>
+        </Homework15Container>
+      )
+    }
+export default Homework15
