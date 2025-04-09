@@ -10,6 +10,10 @@ import Designer from "./pages/Users/components/Designer/Designer";
 import Manager from "./pages/Users/components/Manager/Manager";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Course from "./pages/Course/Course";
+import Clients from "./pages/Clients/Clients";
+import Apple from "./pages/Clients/components/Apple/Apple";
+import Dell from "./pages/Clients/components/Dell/Dell";
+import Samsung from "./pages/Clients/components/Samsung/Samsung";
 
 //Lessons import
 // импорт компонента Lesson06 по умолчанию
@@ -58,6 +62,12 @@ function App() {
           <Route path='/users' element={<Users />}/>
           <Route path='/users/designer' element={<Designer/>}/>
           <Route path='/users/manager' element={<Manager/>}/>
+          <Route path='/clients' element={<Clients/>}/>
+          <Route path='/clients/apple' element={<Apple/>}/>
+          <Route path='/clients/dell' element={<Dell/>}/>
+          <Route path='/clients/samsung' element={<Samsung/>}/>
+         
+
         {/* path='*' - специальный маршрут, который вызовет переданный компонент в
           том случае, если в маршрутах выше не будет найдено того маршрута,
           к которому обращается пользователь */}
