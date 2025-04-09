@@ -2,31 +2,61 @@
 // 2. Когда придут данные, нужно их отобразить в карточке: аватарка, имя-фам, телефон, email
 // 3. Во время того как идет запрос, нужно показать спиннер на эране вместо карточки
 // 4. Если придет ошибка, то отобразить на экране фразу "Some Network error"
-
 import { useEffect, useState } from "react";
-import { Consultation06Container, UserCard, Avatar, UserName, UserInfo } from "./styles";
+import {
+  Consultation06Container,
+  UserCard,
+  Avatar,
+  UserName,
+  UserInfo,
+} from "./styles";
 import axios from "axios";
-function Consultation06 () {
-    const USER_URL: string = 'https://randomuser.me/api/';
-    
-    const [userData, setUserData] = useState<any>(undefined);
-    console.log(userData);
-    
-    const getUser = async () => {
-        try {
-            const response = await axios.get(USER_URL);
-            
-            setUserData(response.data.results[0]);
-        }
-        catch(error: any){
-        }
-        finally{
-        }
+import Button from "../../components/Button/Button";
+
+function Consultation06() {
+  const USER_URL: string = "https://randomuser.me/api/";
+
+  const [userData, setUserData] = useState<any>(undefined);
+  const [isTimerOn, setIsTimerOn] = useState<boolean>(false);
+  const [intervalID, setIsIntervalID] = useState<any>(undefined);
+  console.log(userData);
+
+  const getUser = async () => {
+    // 1 способ через функцию callback переданную setIsTimerOn 
+    // setIsTimerOn((prevValue) => !prevValue);
+
+    // 2 способ через if else
+    console.log(isTimerOn);
+    if (isTimerOn) {
+      clearInterval(intervalID);
+      setIsTimerOn(false);
+      setIsIntervalID(undefined);
+      return;
+    } else {
+      setIsTimerOn(true);
     }
-    useEffect(() => { getUser () }, []);
-    return (
-        <Consultation06Container>
-          { userData && <UserCard>
+
+    let id = setInterval(async () => {
+      try {
+        const response = await axios.get(USER_URL);
+        setUserData(response.data.results[0]);
+      } catch (error: any) {
+      } finally {
+      }
+    }, 2000);
+
+    setIsIntervalID(id);
+  };
+
+  // useEffect(() => {
+  //   getUser();
+  // }, []);
+
+  return (
+    <Consultation06Container>
+      <UserCard>
+        {userData && (
+          <>
             <Avatar src={userData?.picture?.large} alt="user avatar" />
             <UserName>
               Name:
@@ -34,9 +64,16 @@ function Consultation06 () {
             </UserName>
             <UserInfo>Phone:{userData.phone}</UserInfo>
             <UserInfo>Email:{userData.email}</UserInfo>
-          </UserCard>}
-        </Consultation06Container>
-      );
-    }
+          </>
+        )}
+        <Button
+          name={isTimerOn ? "CANCEL GET RANDOM USER" : "GET RANDOM USER"}
+          onClick={getUser}
+          danger={isTimerOn}
+        />
+      </UserCard>
+    </Consultation06Container>
+  );
+}
 
 export default Consultation06;
