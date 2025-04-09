@@ -12,10 +12,13 @@ const Path: React.FC = () => {
       'Списки и ключи',
       'Хуки (useEffect, useContext и другие)',
       'Роутинг (React Router)',
-      'Управление состоянием (например, Context API, Redux - если изучали)',
+      'Управление состоянием (например, Context API, Redux )',
       'Работа с формами',
-      'Стилизация (CSS Modules, Styled Components - если изучали)',
+      'Стилизация (CSS Modules, Styled Components )',
     ];
+
+
+
   return (
     <PathWrapper>
       <Title>React Lessons

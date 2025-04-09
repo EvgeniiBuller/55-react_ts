@@ -26,5 +26,5 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   margin-bottom: 10px;
   font-size: 18px;
-  color: #f0f8ff; // Светлый цвет текста для контраста с фоном
+  color: #f0f8ff; 
 `;
