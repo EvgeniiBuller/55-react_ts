@@ -4,10 +4,10 @@ import Button from "../../../../components/Button/Button";
 
 function Samsung() {
 
-  const navigate = useNavigate();
+  const navigate = useNavigate();//функция  для кнопки для перехода на выбраную строницу
 
   const goToApplePage = ()=>{
-    navigate('/clients/apple')
+    navigate('/clients/apple')//прописываем кнопку на которую строницу перейдёт
   }
 
   return (
