@@ -15,6 +15,7 @@ import Apple from "./pages/Clients/components/Apple/Apple";
 import Dell from "./pages/Clients/components/Dell/Dell";
 import Samsung from "./pages/Clients/components/Samsung/Samsung";
 import Lesson18 from "./lessons/Lesson18/Lesson18";
+import Homework18 from "./homeworks/Homework18/Homework18";
 
 //Lessons import
 // импорт компонента Lesson06 по умолчанию
@@ -68,6 +69,7 @@ function App() {
           <Route path='/clients/dell' element={<Dell/>}/>
           <Route path='/clients/samsung' element={<Samsung/>}/>
           <Route path='/lesson18' element={<Lesson18/>}/>
+          <Route path='/homework18' element={<Homework18/>}/>
          
 
         {/* path='*' - специальный маршрут, который вызовет переданный компонент в
