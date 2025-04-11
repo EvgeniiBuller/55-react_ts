@@ -1,15 +1,24 @@
-import { useContext } from "react";
-import { MessageContext } from "../../Homework18";
-import { MessageContainer, Text } from "./styles";
+import { useContext } from 'react';
+
+import Button from '../../../../components/Button/Button';
+import { MessageContainer, MessageComponent } from './styles';
+import { BlogContext } from '../BlogManagement/BlogManagement';
 
 function Message() {
-  const { message } = useContext(MessageContext)!; // '!' утверждает, что значение контекста не будет undefined
+  const { postedMessage, setPostedMessage } = useContext(BlogContext)
+
+  const deleteMessage = () => {
+    setPostedMessage('')
+  }
 
   return (
-    <MessageContainer>
-      <Text>{message}</Text>
-    </MessageContainer>
+    <MessageComponent>
+      <MessageContainer>{postedMessage}</MessageContainer>
+      <Button name='DELETE MESSAGE' onClick={deleteMessage} danger />
+    </MessageComponent>
   );
 }
 
 export default Message;
+
+
